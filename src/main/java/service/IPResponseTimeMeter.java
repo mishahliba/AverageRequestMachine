@@ -12,8 +12,8 @@ public class IPResponseTimeMeter implements ResponseTimeMeter {
     public long pingHost(String input) throws Exception {
         long startTime = System.nanoTime();
         InetAddress address = InetAddress.getByName(input);
-        boolean reacheable = address.isReachable(4000);
-        if(reacheable) {
+        boolean reachable = address.isReachable(4000);
+        if(reachable) {
             long endTime = System.nanoTime();
             return getDuration(startTime, endTime);
         }else {

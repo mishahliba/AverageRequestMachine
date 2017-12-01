@@ -13,11 +13,10 @@ import java.net.*;
 public class DomainNameResponseTimeMeter implements ResponseTimeMeter {
 
     private static final Logger LOG = LoggerFactory.getLogger(DomainNameResponseTimeMeter.class);
-    private static final String URL_PREFIX = "http://";
     private static HttpURLConnection connection;
 
-    public long pingHost(String input) throws Exception {
-        URL url = new URL(URL_PREFIX + input);
+    public long pingHost(String input)  throws Exception{
+        URL url = new URL("http://"+input);
         long startTime = System.nanoTime();
         int responseCode = getResponseCode(url);
         LOG.debug("response code: {} ", responseCode);
